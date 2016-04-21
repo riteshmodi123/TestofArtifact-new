@@ -16,6 +16,6 @@
         }
     },
     "runCommand": {
-        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass -File CreateDomain.ps1  -password ',  parameters('password'), ' -domain ', parameters('domain'))]"
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass -File CreateDomain.ps1  -domain ', parameters('domain'))]"
     }
 }
