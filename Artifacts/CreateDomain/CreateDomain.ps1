@@ -3,22 +3,19 @@ Param(
     # comma or semicolon separated list of chocolatey packages.
 
 
-
-    [Parameter(Mandatory=$True)]
-    [string] $password,
-
     [Parameter(Mandatory=$True)]
     [string] $domain
 
 )
 
 
-Install-WindowsFeature -Name Ad-Domain-Services,DNS -IncludeManagementTools -Verbose
+Install-WindowsFeature -Name Ad-Domain-Services -IncludeManagementTools -Verbose
+Install-WindowsFeature -Name DNS -verbose
 
 $DatabaseRoot = "C:\Windows"
-$FQDN = $domain + ".com"
+$FQDN = $domain 
 $NetBiosDomainName = "$domain"
-$SecurePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+$SecurePassword = ConvertTo-SecureString -String "Pa55w0rd" -AsPlainText -Force
 
 # Configure Active Directory and DNS
 

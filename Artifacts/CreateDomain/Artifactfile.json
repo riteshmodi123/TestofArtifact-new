@@ -9,13 +9,8 @@
     "iconUri": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Atom_editor_logo.svg/1118px-Atom_editor_logo.svg.png",
     "targetOsType": "Windows",
     "parameters": {
-        "password": {
-            "type": "securestring",
-            "displayName": "password required",
-            "description": "Password when in need"
-        },
-        "domain": {
-            "type": "securestring",
+         "domain": {
+            "type": "string",
             "displayName": "domain name",
             "description": "name of domain"
         }
