@@ -1,5 +1,4 @@
-
-
+﻿
 Param(
     # comma or semicolon separated list of chocolatey packages.
 
@@ -9,7 +8,9 @@ Param(
 
 )
 
-Get-WindowsFeature AD-Domain-Services | Install-WindowsFeature
+
+Install-WindowsFeature -Name Ad-Domain-Services -IncludeManagementTools -Verbose
+
 
 $DatabaseRoot = "C:\Windows"
 $FQDN = "contoso.com"
