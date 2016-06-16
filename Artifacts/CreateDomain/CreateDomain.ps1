@@ -1,4 +1,5 @@
-﻿
+
+
 Param(
     # comma or semicolon separated list of chocolatey packages.
 
@@ -8,19 +9,16 @@ Param(
 
 )
 
-
-Install-WindowsFeature -Name Ad-Domain-Services -IncludeManagementTools -Verbose
-Install-WindowsFeature -Name DNS -verbose
+Get-WindowsFeature AD-Domain-Services | Install-WindowsFeature
 
 $DatabaseRoot = "C:\Windows"
-$FQDN = $domain 
-$NetBiosDomainName = "$domain"
+$FQDN = "contoso.com"
+$NetBiosDomainName = "contoso"
 $SecurePassword = ConvertTo-SecureString -String "Pa55w0rd" -AsPlainText -Force
 
 # Configure Active Directory and DNS
 
 Install-ADDSForest `
--CreateDnsDelegation:$true `
 -DatabasePath "$DatabaseRoot\NTDS" `
 -DomainMode "WIN2012R2" `
 -DomainName $FQDN `
